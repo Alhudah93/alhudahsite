@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { getDB } from '../../../lib/db'
 export default async function handler(req,res){
   const token = req.headers.authorization
   if(token !== process.env.ADMIN_PASSWORD) return res.status(401).json({error:'Unauthorized'})

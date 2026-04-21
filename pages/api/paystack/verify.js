@@ -7,6 +7,7 @@ export default async function handler(req,res){
     const response = await axios.get(`https://api.paystack.co/transaction/verify/${reference}`,{headers:{Authorization:`Bearer ${secret}`}})
     return res.status(200).json(response.data)
   }catch(e){
-    return res.status(500).json({error:'verify failed'})
+    console.error('Paystack verify error:', e?.response?.data || e.message)
+    return res.status(500).json({error:'Verification failed', details: e?.response?.data})
   }
 }
