@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" fill="#F8F6F2" rx="8"/>
+  <g transform="translate(12,12)">
+    <path d="M46 6c4 0 8 6 8 6s4-6 8-6c6 0 18 12 18 24 0 16-26 34-34 34S20 46 20 30C20 18 32 6 46 6z" fill="#0D5660"/>
+    <path d="M6 66c4-8 32-18 40-18s36 10 40 18c-8 6-34 16-40 16s-32-10-40-16z" fill="#2E8A3A" opacity="0.95"/>
+  </g>
+  <text x="60" y="100" font-family="Georgia, serif" font-size="14" font-weight="700" text-anchor="middle" fill="#0D5660">ALHUDAH</text>
+</svg>

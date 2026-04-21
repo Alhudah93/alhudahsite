@@ -1,0 +1,144 @@
+:root{--bg:#faf9f7;--muted:#6b7280;--accent:#0f766e}
+html,body,#__next{height:100%;margin:0}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg); color:#0f172a}
+.container{max-width:1100px;margin:0 auto;padding:2rem}
+main{margin-top:0;padding-top:80px}
+.hero{display:flex;align-items:center;gap:2rem;padding:4rem 0}
+.hero-left{flex:1}
+.hero-right{flex:1;display:flex;align-items:center;justify-content:center}
+.btn{background:var(--accent);color:white;padding:0.75rem 1.25rem;border-radius:8px;border:0;cursor:pointer;font-size:16px;transition:all 0.2s}
+.btn:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 4px 12px rgba(15,118,110,0.3)}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.card{background:white;border-radius:12px;padding:1rem;box-shadow:0 6px 18px rgba(12,12,12,0.06)}
+.form-row{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem}
+.small{font-size:0.9rem;color:var(--muted)}
+.footer{padding:3rem 2rem;background:linear-gradient(135deg,#0f766e,#115e59);color:white;margin:0;border-top:none;text-align:center}
+.footer a{color:#d1fae5;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* Header styles */
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));border-bottom:1px solid rgba(15,23,42,0.08);backdrop-filter: blur(6px);box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.logo-link{display:inline-flex;align-items:center;text-decoration:none;color:inherit;transition:transform 0.2s}
+.logo-link:hover{transform:scale(1.05)}
+.nav{display:flex;gap:14px;align-items:center}
+.nav-link{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;transition:all 0.2s}
+.nav-link:hover{background:rgba(15,118,110,0.06);color:var(--accent)}
+.header .container{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+
+/* Hero Section */
+.hero-section{padding:4rem 2rem;background:linear-gradient(135deg,#f0fdf4,#f0fdff);border-bottom:1px solid #e0e7ff;background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="geo" patternUnits="userSpaceOnUse" width="120" height="120"><path d="M0,60 L30,90 L60,60 L90,90 L120,60" fill="none" stroke="rgba(15,118,110,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="400" fill="url(%23geo)"/></svg>');background-size:cover}
+.hero-image{width:100%;max-width:400px;height:300px;background:linear-gradient(135deg,#c7f0d8,#93fac0);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:96px}
+
+/* Hero Carousel */
+.hero-carousel-wrapper{position:relative;margin:0;z-index:10;width:100%;overflow:hidden}
+.hero-carousel-wrapper .slick-slider{margin:0}
+.hero-carousel-wrapper .slick-slide{outline:none}
+.hero-slide{display:flex !important;align-items:center;justify-content:center;width:100%}
+.hero-slide-content{width:100%;min-height:550px;display:flex;align-items:center;justify-content:center;background-position:center;background-size:cover;background-repeat:no-repeat;position:relative;overflow:hidden}
+.hero-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.35);z-index:1}
+.hero-slide-text{text-align:center;color:white;max-width:750px;padding:3rem 2rem;z-index:2;position:relative;animation:fadeInUp 1s ease-out}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);color:white;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.3)}
+.hero-slide-title{font-size:64px;margin:16px 0 0 0;font-weight:900;letter-spacing:-2px;text-shadow:0 4px 20px rgba(0,0,0,0.3);line-height:1.2}
+.hero-divider{width:60px;height:4px;background:white;margin:24px auto;border-radius:2px;opacity:0.8}
+.hero-slide-subtitle{font-size:32px;margin:0 0 24px 0;font-weight:600;opacity:0.98;text-shadow:0 2px 8px rgba(0,0,0,0.2);line-height:1.4}
+.hero-slide-description{font-size:18px;margin:0;line-height:1.7;opacity:0.95;text-shadow:0 1px 4px rgba(0,0,0,0.15);font-weight:400}
+.hero-cta{margin-top:32px}
+.btn-light{background:white;color:#0f766e;font-weight:600;padding:14px 36px;font-size:16px;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.btn-light:hover{background:#f0fdff;transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.25)}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* Carousel Controls */
+.hero-carousel-wrapper .slick-dots{bottom:35px;list-style:none;padding:0;margin:0;display:flex;justify-content:center;gap:12px;z-index:4}
+.hero-carousel-wrapper .slick-dots li{width:12px;height:12px}
+.carousel-dot-btn{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;padding:0;cursor:pointer;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+.carousel-dot-btn:hover{background:rgba(255,255,255,0.7)}
+.hero-carousel-wrapper .slick-dots li.slick-active .carousel-dot-btn{background:white;width:32px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+.hero-carousel-wrapper .slick-arrow{font-size:0;width:54px;height:54px;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.5);border-radius:50%;cursor:pointer;transition:all 0.3s;z-index:3;display:flex !important;align-items:center;justify-content:center}
+.hero-carousel-wrapper .slick-arrow:hover{background:rgba(255,255,255,0.35);border-color:white;transform:scale(1.1)}
+.hero-carousel-wrapper .slick-prev{left:40px}
+.hero-carousel-wrapper .slick-next{right:40px}
+.hero-carousel-wrapper .slick-arrow::before{color:white;font-size:24px}
+
+/* Objectives Section */
+.objectives-section{margin:0;padding:4rem 2rem;background:#1f2937}
+.objectives-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.objective-card{background:#2d3748;padding:28px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.3);border-left:5px solid #14b8a6;transition:all 0.3s}
+.objective-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,0.4);border-left-color:#06b6d4}
+.objective-card h3{margin:12px 0 12px 0;font-size:18px;color:#14b8a6;font-weight:700;text-align:left}
+.objective-card p{color:#e5e7eb}
+.objectives-section h2{color:white}
+
+/* Leadership Section */
+.leadership-section{margin:0;padding:4rem 2rem;background:white}
+.trustees-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.trustee-card{text-align:center;padding:24px;background:#f8fafc;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:all 0.3s;border-top:3px solid transparent}
+.trustee-card:hover{background:white;border-top-color:var(--accent);box-shadow:0 8px 20px rgba(0,0,0,0.1);transform:translateY(-4px)}
+.trustee-avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#0c4a42);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px;box-shadow:0 4px 12px rgba(15,118,110,0.2)}
+.trustee-card h4{color:#0f172a;margin:0 0 8px 0;font-weight:700;font-size:16px}
+.trustee-card .small{margin:0;color:#475569}
+.leadership-section h2{color:#0f172a}
+.leadership-section p{color:#475569}
+
+/* Projects Section */
+.projects-section{margin:0;padding:4rem 2rem;background:#1f2937}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.project-card{background:#2d3748;border-top:4px solid #14b8a6;padding:28px;border-radius:12px;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.project-card:hover{background:#374151;box-shadow:0 12px 28px rgba(0,0,0,0.4);transform:translateY(-6px);border-top-color:#06b6d4}
+.project-icon{font-size:40px;margin-bottom:16px;display:inline-block;color:#14b8a6}
+.project-card h3{margin:12px 0 12px 0;font-size:19px;color:#14b8a6;font-weight:700}
+.project-card p{color:#e5e7eb}
+.projects-section h2{color:white}
+
+/* Donation CTA Section */
+.donation-cta-section{margin:0;padding:4rem 2rem;background:white;color:#0f172a;box-shadow:none}
+.donation-cta-section h2{color:#0f172a;margin:0 0 12px 0;font-size:42px;font-weight:800}
+.donation-channels{display:flex;flex-wrap:wrap;gap:32px;margin-top:32px}
+.donation-channel{flex:1;min-width:240px;background:#f3f4f6;backdrop-filter:none;padding:24px;border-radius:12px;border:2px solid #0f766e;transition:all 0.3s}
+.donation-channel:hover{background:#e5e7eb;border-color:#115e59;transform:translateY(-4px)}
+.donation-channel h4{color:#0f766e;margin:0 0 8px 0;font-size:17px;font-weight:700}
+.donation-channel p{color:#1f2937}
+.donation-channel .small{color:#1f2937;margin:0}
+
+/* Responsive Images */
+.section-image{width:100%;height:auto;border-radius:8px;margin:1.5rem 0}
+
+@media(max-width:720px){
+  main{margin-top:70px}
+  .hero-carousel-wrapper{margin-top:0}
+  .hero-slide-content{min-height:380px}
+  .hero-slide-title{font-size:40px}
+  .hero-slide-subtitle{font-size:22px}
+  .hero-slide-description{font-size:15px}
+  .hero-carousel-wrapper .slick-arrow{width:44px;height:44px}
+  .hero-carousel-wrapper .slick-prev{left:20px}
+  .hero-carousel-wrapper .slick-next{right:20px}
+  .hero-slide-text{padding:2rem 1.5rem}
+  .hero{flex-direction:column;text-align:center;padding:2rem 1rem}
+  .hero-right{order:2}
+  .nav{display:none}
+  .objectives-grid,.trustees-grid,.projects-grid{grid-template-columns:1fr}
+  .donation-cta-section{padding:2rem 1rem}
+  .donation-channels{flex-direction:column;gap:16px}
+  .container{padding:1rem}
+  .header .container{padding:0.75rem 1rem}
+  .hero-image{max-width:100%;height:250px}
+  h1{font-size:28px !important}
+  h2{font-size:24px !important}
+}
+
+@media(max-width:480px){
+  .btn{padding:0.6rem 1rem;font-size:14px}
+  .btn-light{padding:12px 28px;font-size:14px}
+  h1{font-size:24px !important}
+  h2{font-size:20px !important}
+  .objective-card,.project-card{padding:20px}
+  .objectives-grid,.trustees-grid,.projects-grid{gap:16px}
+  .hero-slide-content{min-height:300px}
+  .hero-slide-title{font-size:32px}
+  .hero-slide-subtitle{font-size:18px}
+  .hero-slide-description{font-size:14px}
+  .hero-carousel-wrapper .slick-dots{bottom:20px}
+  .hero-slide-text{padding:1.5rem 1rem}
+  .donation-cta-section h2{font-size:28px}
+}
