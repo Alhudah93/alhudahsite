@@ -1,7 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Header(){
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
   return (
     <header className="header">
       <div className="container" style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
@@ -15,10 +22,16 @@ export default function Header(){
             </div>
           </Link>
         </div>
-        <nav className="nav">
-          <Link href="#programs" className="nav-link">Programs</Link>
-          <Link href="/donate" className="nav-link">Donation</Link>
-          <Link href="/membership" className="nav-link">Membership Dashboard</Link>
+        <button className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu">
+          <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+          <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+          <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+        </button>
+        <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+          <Link href="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link href="#programs" className="nav-link" onClick={() => setIsMenuOpen(false)}>Programs</Link>
+          <Link href="/donate" className="nav-link" onClick={() => setIsMenuOpen(false)}>Donation</Link>
+          <Link href="/membership" className="nav-link" onClick={() => setIsMenuOpen(false)}>Membership Dashboard</Link>
         </nav>
       </div>
     </header>
