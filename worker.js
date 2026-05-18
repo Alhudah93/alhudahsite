@@ -4,10 +4,16 @@ const nodemailer = require('nodemailer')
 
 let pool
 
+function getDbHost() {
+  const rawHost = (process.env.DB_HOST || '127.0.0.1').trim()
+  if (rawHost === 'localhost' || rawHost === '::1') return '127.0.0.1'
+  return rawHost
+}
+
 async function getDB(){
   if(pool) return pool
   pool = mysql.createPool({
-    host: process.env.DB_HOST || 'localhost',
+    host: getDbHost(),
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || '',
     database: process.env.DB_NAME || 'alhudah',
