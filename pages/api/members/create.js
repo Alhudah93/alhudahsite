@@ -17,11 +17,15 @@ export default async function handler(req, res) {
     // If a member with this email exists, update their amount instead of inserting duplicate
     const existing = await query('SELECT * FROM members WHERE email = ? LIMIT 1', [normalizedEmail])
     if (existing && existing.length) {
-      await query('UPDATE members SET amount = ?, created = ? WHERE email = ?', [amountValue, created, normalizedEmail])
       const member = existing[0]
+      const prevAmount = Number(member.amount || 0)
+      if (prevAmount === amountValue) {
+        return res.status(200).json({ ok: true, message: 'You have already made a pledge', member })
+      }
+      // amount changed — update record
+      await query('UPDATE members SET amount = ? WHERE email = ?', [amountValue, normalizedEmail])
       member.amount = amountValue
-      member.created = created
-      return res.status(200).json({ ok: true, member })
+      return res.status(200).json({ ok: true, updated: true, message: 'Pledge updated', member })
     }
 
     await query(
