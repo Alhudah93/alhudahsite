@@ -5,7 +5,7 @@ export default async function handler(req,res){
   if(!email || !amount) return res.status(400).json({error:'Missing'})
   try{
     const id = Date.now().toString()
-    const created = new Date().toISOString()
+    const created = new Date().toISOString().slice(0, 19).replace('T', ' ')
     await query(
       'INSERT INTO members (id, email, amount, created, lastNotified) VALUES (?, ?, ?, ?, NULL)',
       [id, email, Number(amount), created]
